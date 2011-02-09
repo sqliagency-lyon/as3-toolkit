@@ -1,0 +1,9 @@
+what,kind,bundleId,bundleVersion,description,time
+stopped,bundle,org.eclipse.team.cvs.ui,3.3.100.r34x_20090121,org.eclipse.team.cvs.ui,1297315950124
+stopped,bundle,org.eclipse.team.ui,3.4.1.r34x_20080827,org.eclipse.team.ui,1297315950125
+stopped,bundle,org.eclipse.compare,3.4.1.r34x_20090121,org.eclipse.compare,1297315950125
+stopped,bundle,org.eclipse.emf.edit.ui,2.4.2.v200902171115,org.eclipse.emf.edit.ui,1297315950125
+stopped,bundle,org.eclipse.wst.common.snippets,1.1.200.v200805140415,org.eclipse.wst.common.snippets,1297315950125
+stopped,bundle,org.eclipse.gef,3.4.1.v20080806,org.eclipse.gef,1297315950125
+stopped,bundle,org.eclipse.ui.externaltools,3.2.0.v20080514-1542,org.eclipse.ui.externaltools,1297315950126
+stopped,bundle,org.eclipse.wst.server.ui,1.1.4.v20090128,org.eclipse.wst.server.ui,1297315950129

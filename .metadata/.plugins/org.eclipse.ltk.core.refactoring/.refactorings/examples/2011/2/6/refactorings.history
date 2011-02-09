@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Renommer la ressource &apos;examples/src&apos; en &apos;classes&apos;" description="Renommer la ressource &apos;src&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src" name="classes" stamp="1297314243276" updateReferences="true"/>
+</session>

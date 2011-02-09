@@ -1,0 +1,4 @@
+#Thu Feb 10 06:30:47 CET 2011
+eclipse.preferences.version=1
+org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<launchPerspectives/>\n
+org.eclipse.debug.ui.user_view_bindings=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<viewBindings>\n<view id\="org.eclipse.ui.console.ConsoleView">\n<perspective id\="com.adobe.flexbuilder.editors.mxml.ui.perspectives.development" userAction\="opened"/>\n</view>\n</viewBindings>\n
