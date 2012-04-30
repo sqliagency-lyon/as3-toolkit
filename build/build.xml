@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Build Toolkit Binaries                                                                 
+     ====================================================================== -->
+<project name="SqliAgency Toolkit" default="default" basedir="../">
+	<condition property="exe" value=".exe">
+		<os family="windows"/>
+	</condition>
+	<condition property="exe" value="">
+		<os family="unix"/>
+	</condition>
+	
+	<property name="dir.build" value="${basedir}/build"/>
+	<property file="${dir.build}/build.properties"/>
+	<property file="${dir.build}/toolkit.properties"/>
+	
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" /> 
+	
+	<!--
+	<fail unless="APPARAT_HOME"/>
+	<fail unless="SCALA_HOME"/>
+	<fail unless="FLEX_HOME"/>
+	<fail unless="flex.frameworks"/>
+	<fail unless="flex.bin"/>
+	<fail unless="flex.libs"/>
+	<fail unless="flex.compc"/>
+	<fail unless="flex.mxmlc"/>
+	<fail unless="flex.asdoc"/>
+	-->
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: default                      
+         - - - - - - - - - - - - - - - - - -->
+	
+    <target name="default" depends="clean">
+		<antcall target="_version_class" />
+		<antcall target="buildDocs" />
+	</target>
+	<!--
+	<path id="apparat.path">
+      <fileset dir="${SCALA_HOME}" includes="lib/*.jar"/>
+      <fileset dir="${APPARAT_HOME}" includes="*.jar"/>
+    </path>
+
+	<taskdef resource="apparat/embedding/ant/antlib.xml">
+	  <classpath refid="apparat.path"/>
+	</taskdef>
+	 -->
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: clean                      
+         - - - - - - - - - - - - - - - - - -->
+	
+	<target name="clean">
+		<delete includeEmptyDirs="true"> 
+            <fileset dir="${dir.docs}" includes="**/*"/> 
+        </delete> 
+	</target>
+		
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: _version_class                     
+         - - - - - - - - - - - - - - - - - -->
+	<target name="_version_class">
+		<tstamp>
+	   		<format property="date.today" pattern="yyyy-MM-dd HH:mm:ss" />
+	   	</tstamp>
+		<copy file="${dir.build}/Version.tpl" tofile="${dir.src.toolkit}/Version.as" overwrite="true">
+			<filterset>
+				<filter token="MAJOR" value="${sqliagency.version.major}" />
+				<filter token="MINOR" value="${sqliagency.version.minor}" />
+				<filter token="BUILD" value="${sqliagency.version.number}" />
+				<filter token="TODAY" value="${date.today}" />
+			</filterset>
+		</copy>
+	</target>
+	
+	<!-- ================================= 
+          target: buildDocs              
+         ================================= -->
+	<target name="buildDocs" description="Build Toolkit docs">
+		<antcall target="_buildReference" />
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+	          target: _buildReference                   
+	         - - - - - - - - - - - - - - - - - -->
+	<target name="_buildReference">
+		<asdoc output="${dir.docs}"
+		       debug="true"
+		       target-player="10.0"
+		       main-title="SqliAgency Toolkit - v${sqliagency.version.major}.${sqliagency.version.minor}.${sqliagency.version.number}"
+		       window-title="SqliAgency Toolkit - v${sqliagency.version.major}.${sqliagency.version.minor}.${sqliagency.version.number}">
+			<source-path path-element="${dir.src}" />
+			<doc-sources path-element="${dir.src}" />
+		</asdoc>
+	</target>
+</project>
